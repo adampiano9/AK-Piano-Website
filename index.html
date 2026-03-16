@@ -1,235 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AK Piano Official</title>
-    <link rel="icon" type="image/png" href="ak piano.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AK Piano Official</title>
+<link rel="icon" type="image/png" href="ak piano.png">
 
-    <style>
-        /* ===== Body & Ocean Background ===== */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            color: #ffffff;
-            background: linear-gradient(to bottom, #001f3f, #004080);
-            background-size: 100% 200%;
-            animation: oceanWave 12s ease-in-out infinite alternate;
-            overflow-x: hidden;
-        }
+<style>
 
-        @keyframes oceanWave {
-            0% { background-position: 0 0; }
-            100% { background-position: 0 50%; }
-        }
+/* Prevent white flash */
+html{
+    background:#001f3f;
+    scroll-behavior:smooth;
+}
 
-        /* ===== Header ===== */
-        header {
-            text-align: center;
-            padding: 20px;
-            background-color: rgba(0, 38, 77, 0.85);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+/* Body styling */
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    color:white;
+    background:linear-gradient(180deg,#001f3f,#003366,#001f3f);
+    background-size:200% 200%;
+    animation:oceanMove 18s ease infinite;
+}
 
-        header h1 {
-            font-size: 3em;
-            margin: 0;
-            animation: fadeInDown 2s ease;
-        }
+/* animated ocean gradient */
+@keyframes oceanMove{
+0%{background-position:0% 0%}
+50%{background-position:0% 100%}
+100%{background-position:0% 0%}
+}
 
-        nav {
-            margin-top: 10px;
-            font-size: 1.2em;
-        }
+/* Header */
+header{
+    text-align:center;
+    padding:20px;
+    background:rgba(0,25,60,0.85);
+    backdrop-filter:blur(6px);
+    position:sticky;
+    top:0;
+    z-index:10;
+}
 
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            margin: 0 12px;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
-        }
+/* Title animation */
+header h1{
+    font-size:3rem;
+    margin:0;
+    animation:fadeDown 1.5s ease;
+}
 
-        nav a:hover {
-            color: #00ffff;
-            text-shadow: 0 0 15px #00ffff;
-        }
+/* Navigation */
+nav{
+    margin-top:10px;
+}
 
-        /* YouTube button */
-        .youtube-btn {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background-color: #ff0000;
-            color: #ffffff;
-            font-weight: bold;
-            border-radius: 20px;
-            text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 12px;
+    font-weight:bold;
+    transition:all .3s ease;
+}
 
-        .youtube-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        }
+nav a:hover{
+    color:#00eaff;
+    text-shadow:0 0 12px #00eaff;
+}
 
-        /* ===== Banner Image ===== */
-        .banner {
-            display: block;
-            max-width: 80%;
-            height: auto;
-            margin: 30px auto 50px auto;
-            border-radius: 25px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-            animation: float 6s ease-in-out infinite;
-        }
+/* YouTube button */
+.youtube-btn{
+display:inline-block;
+margin-top:15px;
+padding:10px 20px;
+background:#ff0000;
+border-radius:20px;
+color:white;
+text-decoration:none;
+font-weight:bold;
+transition:.3s;
+}
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0);}
-            50% { transform: translateY(-15px);}
-        }
+.youtube-btn:hover{
+transform:translateY(-3px);
+box-shadow:0 8px 20px rgba(0,0,0,.4);
+}
 
-        @keyframes fadeInDown {
-            0% { opacity: 0; transform: translateY(-50px);}
-            100% { opacity: 1; transform: translateY(0);}
-        }
+/* Banner */
+.banner{
+display:block;
+width:80%;
+max-width:900px;
+margin:40px auto;
+border-radius:25px;
+box-shadow:0 12px 30px rgba(0,0,0,.6);
+animation:float 6s ease-in-out infinite;
+}
 
-        /* ===== Sections ===== */
-        section {
-            padding: 60px 20px;
-            max-width: 900px;
-            margin: 40px auto;
-            text-align: center;
-            background-color: rgba(0, 38, 77, 0.65); /* semi-transparent */
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-            transform: translateY(50px);
-            opacity: 0;
-            animation: slideInUp 1.5s ease forwards;
-        }
+/* floating animation */
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+100%{transform:translateY(0)}
+}
 
-        section:nth-of-type(1) { animation-delay: 0.5s; }
-        section:nth-of-type(2) { animation-delay: 1s; }
-        section:nth-of-type(3) { animation-delay: 1.5s; }
+/* Sections */
+section{
+max-width:900px;
+margin:40px auto;
+padding:60px 30px;
+text-align:center;
+background:rgba(0,30,70,0.6);
+backdrop-filter:blur(10px);
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.5);
+animation:fadeUp 1.2s ease;
+transition:transform .4s ease;
+}
 
-        section h2 {
-            font-size: 2.2em;
-            margin-bottom: 20px;
-            color: #00ffff;
-        }
+/* subtle hover float */
+section:hover{
+transform:translateY(-6px);
+}
 
-        section p {
-            font-size: 1.2em;
-            line-height: 1.6;
-        }
+/* headings */
+section h2{
+color:#00eaff;
+font-size:2.2rem;
+margin-bottom:15px;
+}
 
-        section ul {
-            list-style-type: square;
-            padding-left: 0;
-        }
+/* paragraph */
+section p{
+font-size:1.15rem;
+line-height:1.6;
+}
 
-        section ul li {
-            font-size: 1.1em;
-            margin: 10px 0;
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
+/* list items */
+ul{
+list-style:square;
+padding-left:0;
+}
 
-        section ul li:hover {
-            color: #00ffff;
-            transform: translateX(10px);
-        }
+li{
+margin:10px 0;
+transition:.3s;
+}
 
-        @keyframes slideInUp {
-            0% { opacity: 0; transform: translateY(50px);}
-            100% { opacity: 1; transform: translateY(0);}
-        }
+li:hover{
+color:#00eaff;
+transform:translateX(6px);
+}
 
-        /* ===== Footer ===== */
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            background-color: rgba(0, 38, 77, 0.85);
-            color: #ffffff;
-            border-top: 2px solid #00ffff;
-            box-shadow: 0 -4px 10px rgba(0,0,0,0.5);
-            animation: fadeIn 2s ease;
-        }
+/* Footer */
+footer{
+text-align:center;
+padding:30px;
+background:rgba(0,25,60,0.9);
+margin-top:40px;
+}
 
-        footer a {
-            color: #00ffff;
-            text-decoration: none;
-        }
+/* Animations */
+@keyframes fadeDown{
+0%{opacity:0;transform:translateY(-30px)}
+100%{opacity:1;transform:translateY(0)}
+}
 
-        footer a:hover {
-            text-decoration: underline;
-        }
+@keyframes fadeUp{
+0%{opacity:0;transform:translateY(40px)}
+100%{opacity:1;transform:translateY(0)}
+}
 
-        @keyframes fadeIn {
-            0% { opacity: 0;}
-            100% { opacity: 1;}
-        }
-
-    </style>
+</style>
 </head>
+
 <body>
 
-    <!-- Header -->
-    <header>
-        <h1>AK Piano</h1>
-        <nav>
-            <a href="#welcome">Home</a> |
-            <a href="#about">About</a> |
-            <a href="#future-videos">Videos</a>
-        </nav>
-        <a href="https://www.youtube.com/channel/UCsDT6PkFGowCyAs8XLMNA_Q" target="_blank" class="youtube-btn">
-            Visit My YouTube Channel
-        </a>
-    </header>
+<header>
+<h1>AK Piano</h1>
 
-    <!-- Banner -->
-    <img src="ChatGPT Image Mar 1, 2026, 08_53_49 PM.png" alt="AK Piano Banner" class="banner">
+<nav>
+<a href="#welcome">Home</a>
+<a href="#about">About</a>
+<a href="#future-videos">Videos</a>
+</nav>
 
-    <!-- Welcome Section -->
-    <section id="welcome">
-        <h2>Welcome to my channel: AK Piano</h2>
-        <p>
-            Welcome to <strong>AK Piano!</strong> I’m a pianist who loves performing and sharing music with everyone.
-            Whether you’re a fellow music lover or just curious, you’ll find videos, tutorials, and musical inspiration here.
-            I love exploring different piano styles, from nostalgic classics to worldwide famous pieces, and I can't wait to share them with you!
-        </p>
-    </section>
+<a class="youtube-btn" href="https://www.youtube.com/channel/UCsDT6PkFGowCyAs8XLMNA_Q" target="_blank">
+Visit My YouTube Channel
+</a>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About</h2>
-        <p>
-            I'm a 14-year-old pianist and I cover most nostalgic songs and worldwide famous piano pieces.
-            Music has been my passion since I was little, and I love connecting with others through my performances.
-            Follow me to join my musical journey and discover more piano magic!
-        </p>
-    </section>
+</header>
 
-    <!-- Future Videos Section -->
-    <section id="future-videos">
-        <h2>Future videos/upcoming</h2>
-        <ul>
-            <li>My first piano performance</li>
-            <li>Beginner piano tips</li>
-            <li>Classical piano covers</li>
-            <li>Piano practice sessions</li>
-            <li>Special tribute pieces from nostalgic movies</li>
-        </ul>
-    </section>
+<img src="banner.png" class="banner" alt="AK Piano Banner">
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 AK Piano. All rights reserved.</p>
-        <p>Contact me: <a href="mailto:Adampiano9@gmail.com">Adampiano9@gmail.com</a></p>
-        <p><a href="#">Privacy Policy</a> (coming soon)</p>
-    </footer>
+<section id="welcome">
+<h2>Welcome to AK Piano</h2>
+<p>
+Welcome to <strong>AK Piano!</strong> I'm a pianist who loves performing and sharing music.
+Here you will find piano performances, tutorials, nostalgic music and famous
+pieces from around the world.
+</p>
+</section>
+
+<section id="about">
+<h2>About</h2>
+<p>
+I'm a 14-year-old pianist who enjoys playing nostalgic songs and famous piano
+pieces. Music has always been a passion of mine, and this channel is where I
+share my journey, performances, and practice sessions.
+</p>
+</section>
+
+<section id="future-videos">
+<h2>Future Videos / Upcoming</h2>
+
+<ul>
+<li>My first piano performance</li>
+<li>Beginner piano tips</li>
+<li>Classical piano covers</li>
+<li>Piano practice sessions</li>
+<li>Nostalgic movie piano themes</li>
+</ul>
+
+</section>
+
+<footer>
+<p>© 2026 AK Piano. All rights reserved.</p>
+<p>Contact: <a href="mailto:Adampiano9@gmail.com">Adampiano9@gmail.com</a></p>
+<p>Privacy Policy (coming soon)</p>
+</footer>
 
 </body>
 </html>
